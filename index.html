@@ -93,6 +93,33 @@
     <button class="fixed bottom-24 right-6 bg-terakota text-white w-14 h-14 rounded-full shadow-lg flex items-center justify-center font-bold text-sm border-4 border-red-200 active:scale-95 transition-transform">
         SOS
     </button>
+<script>
+        async function kunciPortrait() {
+            try {
+                // Langkah 1: Masuk ke mode fullscreen terlebih dahulu
+                if (document.documentElement.requestFullscreen) {
+                    await document.documentElement.requestFullscreen();
+                } else if (document.documentElement.webkitRequestFullscreen) { /* Safari/iOS */
+                    await document.documentElement.webkitRequestFullscreen();
+                }
+                
+                // Langkah 2: Kunci orientasi ke portrait
+                if (screen.orientation && screen.orientation.lock) {
+                    await screen.orientation.lock('portrait');
+                    console.log("Layar berhasil dikunci ke portrait.");
+                }
+            } catch (error) {
+                console.log("Gagal mengunci rotasi: ", error.message);
+                // Gagal biasanya karena belum ada interaksi pengguna atau perangkat tidak mendukung
+            }
+        }
 
+        // Memicu penguncian saat pengguna berinteraksi pertama kali (misal memilih mood atau tombol sehat)
+        document.addEventListener('click', function pemicuKunci() {
+            kunciPortrait();
+            // Hapus event listener setelah dijalankan sekali agar tidak mengganggu klik berikutnya
+            document.removeEventListener('click', pemicuKunci);
+        }, { once: true });
+    </script>
 </body>
 </html>
