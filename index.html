@@ -39,6 +39,7 @@
             -webkit-tap-highlight-color: transparent;
         }
     </style>
+    <!-- Lucide Icons untuk Ikon Modern -->
     <script src="https://unpkg.com/lucide@latest"></script>
 </head>
 <body class="text-stone-800 antialiased pb-24">
@@ -73,7 +74,14 @@
         </button>
 
     </main>
-<footer class="text-center py-8 px-6 text-[11px] font-medium tracking-wide text-stone-400 space-y-2">
+
+    <!-- Floating SOS Button (Pojok kanan bawah) -->
+    <button class="fixed bottom-24 right-6 bg-terakota text-white w-14 h-14 rounded-full shadow-lg flex items-center justify-center font-bold text-sm border-4 border-red-200 active:scale-95 transition-transform z-50">
+        SOS
+    </button>
+
+    <!-- Footer / Tech Stack Info -->
+    <footer class="text-center py-8 px-6 text-[11px] font-medium tracking-wide text-stone-400 space-y-2 mb-12">
         <div class="flex justify-center items-center gap-1.5">
             <i data-lucide="code-2" class="w-3.5 h-3.5 stroke-[2.5]"></i>
             <span>Crafted with care</span>
@@ -83,37 +91,36 @@
         </div>
         <p class="text-[10px] opacity-75">RuangTengah App • RakitIde Project</p>
     </footer>
+
     <!-- Bottom Navigation Bar (App-like feel) -->
     <nav class="fixed bottom-0 left-0 right-0 max-w-md mx-auto bg-white/80 backdrop-blur-md border-t border-stone-100 px-8 py-4 flex justify-between items-center z-50 rounded-t-3xl shadow-[0_-4px_24px_rgba(0,0,0,0.04)]">
-    <!-- Beranda (Aktif) -->
-    <a href="#" class="flex flex-col items-center gap-1 text-kopi group">
-        <div class="p-1 rounded-xl bg-amber-50 group-active:scale-95 transition-transform">
-            <i data-lucide="home" class="w-5 h-5 stroke-[2.5]"></i>
-        </div>
-        <span class="text-[11px] font-bold tracking-wide">Beranda</span>
-    </a>
-    
-    <!-- Jurnal -->
-    <a href="#" class="flex flex-col items-center gap-1 text-stone-400 hover:text-kopi group transition-colors">
-        <div class="p-1 rounded-xl group-active:scale-95 transition-transform">
-            <i data-lucide="wallet" class="w-5 h-5 stroke-[2]"></i>
-        </div>
-        <span class="text-[11px] font-medium tracking-wide">Jurnal</span>
-    </a>
-    
-    <!-- Akun -->
-    <a href="#" class="flex flex-col items-center gap-1 text-stone-400 hover:text-kopi group transition-colors">
-        <div class="p-1 rounded-xl group-active:scale-95 transition-transform">
-            <i data-lucide="user" class="w-5 h-5 stroke-[2]"></i>
-        </div>
-        <span class="text-[11px] font-medium tracking-wide">Akun</span>
-    </a>
-</nav>
-    <!-- Floating SOS Button (Pojok kanan bawah) -->
-    <button class="fixed bottom-24 right-6 bg-terakota text-white w-14 h-14 rounded-full shadow-lg flex items-center justify-center font-bold text-sm border-4 border-red-200 active:scale-95 transition-transform">
-        SOS
-    </button>
-<script>
+        <!-- Beranda (Aktif) -->
+        <a href="#" class="flex flex-col items-center gap-1 text-kopi group">
+            <div class="p-1 rounded-xl bg-amber-50 group-active:scale-95 transition-transform">
+                <i data-lucide="home" class="w-5 h-5 stroke-[2.5]"></i>
+            </div>
+            <span class="text-[11px] font-bold tracking-wide">Beranda</span>
+        </a>
+        
+        <!-- Jurnal -->
+        <a href="#" class="flex flex-col items-center gap-1 text-stone-400 hover:text-kopi group transition-colors">
+            <div class="p-1 rounded-xl group-active:scale-95 transition-transform">
+                <i data-lucide="wallet" class="w-5 h-5 stroke-[2]"></i>
+            </div>
+            <span class="text-[11px] font-medium tracking-wide">Jurnal</span>
+        </a>
+        
+        <!-- Akun -->
+        <a href="#" class="flex flex-col items-center gap-1 text-stone-400 hover:text-kopi group transition-colors">
+            <div class="p-1 rounded-xl group-active:scale-95 transition-transform">
+                <i data-lucide="user" class="w-5 h-5 stroke-[2]"></i>
+            </div>
+            <span class="text-[11px] font-medium tracking-wide">Akun</span>
+        </a>
+    </nav>
+
+    <!-- JavaScript Logika Transisi dan Fitur -->
+    <script>
         async function kunciPortrait() {
             try {
                 // Langkah 1: Masuk ke mode fullscreen terlebih dahulu
@@ -130,21 +137,17 @@
                 }
             } catch (error) {
                 console.log("Gagal mengunci rotasi: ", error.message);
-                // Gagal biasanya karena belum ada interaksi pengguna atau perangkat tidak mendukung
             }
         }
 
-        // Memicu penguncian saat pengguna berinteraksi pertama kali (misal memilih mood atau tombol sehat)
+        // Memicu penguncian saat pengguna berinteraksi pertama kali
         document.addEventListener('click', function pemicuKunci() {
             kunciPortrait();
-            // Hapus event listener setelah dijalankan sekali agar tidak mengganggu klik berikutnya
             document.removeEventListener('click', pemicuKunci);
         }, { once: true });
-    </script>
-    <script>
+
         // Mengaktifkan semua ikon Lucide di halaman
         lucide.createIcons();
     </script>
-</body>
 </body>
 </html>
