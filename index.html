@@ -39,6 +39,7 @@
             -webkit-tap-highlight-color: transparent;
         }
     </style>
+    <script src="https://unpkg.com/lucide@latest"></script>
 </head>
 <body class="text-stone-800 antialiased pb-24">
 
@@ -74,21 +75,31 @@
     </main>
 
     <!-- Bottom Navigation Bar (App-like feel) -->
-    <nav class="fixed bottom-0 w-full max-w-md mx-auto bg-white border-t border-stone-200 px-6 py-3 flex justify-between items-center z-50 rounded-t-2xl">
-        <a href="#" class="flex flex-col items-center text-kopi">
-            <span class="text-xl">🏠</span>
-            <span class="text-xs font-semibold mt-1">Beranda</span>
-        </a>
-        <a href="#" class="flex flex-col items-center text-stone-400 hover:text-kopi transition-colors">
-            <span class="text-xl">💸</span>
-            <span class="text-xs mt-1">Jurnal</span>
-        </a>
-        <a href="#" class="flex flex-col items-center text-stone-400 hover:text-kopi transition-colors">
-            <span class="text-xl">⚙️</span>
-            <span class="text-xs mt-1">Akun</span>
-        </a>
-    </nav>
-
+    <nav class="fixed bottom-0 left-0 right-0 max-w-md mx-auto bg-white/80 backdrop-blur-md border-t border-stone-100 px-8 py-4 flex justify-between items-center z-50 rounded-t-3xl shadow-[0_-4px_24px_rgba(0,0,0,0.04)]">
+    <!-- Beranda (Aktif) -->
+    <a href="#" class="flex flex-col items-center gap-1 text-kopi group">
+        <div class="p-1 rounded-xl bg-amber-50 group-active:scale-95 transition-transform">
+            <i data-lucide="home" class="w-5 h-5 stroke-[2.5]"></i>
+        </div>
+        <span class="text-[11px] font-bold tracking-wide">Beranda</span>
+    </a>
+    
+    <!-- Jurnal -->
+    <a href="#" class="flex flex-col items-center gap-1 text-stone-400 hover:text-kopi group transition-colors">
+        <div class="p-1 rounded-xl group-active:scale-95 transition-transform">
+            <i data-lucide="wallet" class="w-5 h-5 stroke-[2]"></i>
+        </div>
+        <span class="text-[11px] font-medium tracking-wide">Jurnal</span>
+    </a>
+    
+    <!-- Akun -->
+    <a href="#" class="flex flex-col items-center gap-1 text-stone-400 hover:text-kopi group transition-colors">
+        <div class="p-1 rounded-xl group-active:scale-95 transition-transform">
+            <i data-lucide="user" class="w-5 h-5 stroke-[2]"></i>
+        </div>
+        <span class="text-[11px] font-medium tracking-wide">Akun</span>
+    </a>
+</nav>
     <!-- Floating SOS Button (Pojok kanan bawah) -->
     <button class="fixed bottom-24 right-6 bg-terakota text-white w-14 h-14 rounded-full shadow-lg flex items-center justify-center font-bold text-sm border-4 border-red-200 active:scale-95 transition-transform">
         SOS
@@ -121,5 +132,10 @@
             document.removeEventListener('click', pemicuKunci);
         }, { once: true });
     </script>
+    <script>
+        // Mengaktifkan semua ikon Lucide di halaman
+        lucide.createIcons();
+    </script>
+</body>
 </body>
 </html>
